@@ -359,7 +359,7 @@ describe('instantiate client', () => {
       process.env['SULLY_AI_BASE_URL'] = 'https://example.com/from_env';
 
       expect(
-        () => new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', environment: 'production' }),
+        () => new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', environment: 'testing' }),
       ).toThrowErrorMatchingInlineSnapshot(
         `"Ambiguous URL; The \`baseURL\` option (or SULLY_AI_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
@@ -368,7 +368,7 @@ describe('instantiate client', () => {
         apiKey: 'My API Key',
         accountID: 'My Account ID',
         baseURL: null,
-        environment: 'production',
+        environment: 'testing',
       });
       expect(client.baseURL).toEqual('https://api-testing.sully.ai');
     });
