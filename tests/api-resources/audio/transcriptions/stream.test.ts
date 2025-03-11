@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 
-const client = new SullyaiAPI({
+const client = new SullyAI({
   apiKey: 'My API Key',
   accountID: 'My Account ID',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',

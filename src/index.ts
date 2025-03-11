@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { SullyaiAPI as default } from './client';
+export { SullyAI as default } from './client';
 
 export { type Uploadable, toFile } from './uploads';
 export { APIPromise } from './api-promise';
-export { SullyaiAPI, type ClientOptions } from './client';
+export { SullyAI, type ClientOptions } from './client';
 export {
-  SullyaiAPIError,
+  SullyAIError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
