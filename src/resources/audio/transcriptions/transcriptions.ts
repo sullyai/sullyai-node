@@ -16,7 +16,7 @@ export class Transcriptions extends APIResource {
   /**
    * Creates a new audio transcription
    */
-  create(body: TranscriptionCreateParams, options?: RequestOptions): APIPromise<string> {
+  create(body: TranscriptionCreateParams, options?: RequestOptions): APIPromise<TranscriptionCreateResponse> {
     return this._client.post(
       '/v1/audio/transcriptions',
       multipartFormRequestOptions({ body, ...options }, this._client),
@@ -38,7 +38,30 @@ export class Transcriptions extends APIResource {
   }
 }
 
-export type TranscriptionCreateResponse = string;
+export interface TranscriptionCreateResponse {
+  data?: TranscriptionCreateResponse.Data;
+
+  status?: string;
+}
+
+export namespace TranscriptionCreateResponse {
+  export interface Data {
+    /**
+     * Informational message about the request status.
+     */
+    message?: string;
+
+    /**
+     * The processing status of the transcription request. Always 'pending'.
+     */
+    status?: string;
+
+    /**
+     * Unique identifier for the audio transcription request.
+     */
+    transcriptionId?: string;
+  }
+}
 
 export interface TranscriptionRetrieveResponse {
   data?: TranscriptionRetrieveResponse.Data;

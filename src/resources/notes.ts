@@ -130,14 +130,16 @@ export namespace NoteRetrieveResponse {
 
 export interface NoteCreateParams {
   /**
+   * Date of the patient encounter
+   */
+  date: string;
+
+  transcript: string;
+
+  /**
    * Additional context for note generation. This field is optional.
    */
   context?: string | null;
-
-  /**
-   * Date of the patient encounter
-   */
-  date?: string;
 
   /**
    * Special instructions for note generation. This field is optional.
@@ -161,8 +163,6 @@ export interface NoteCreateParams {
    * Reference to a previous note if this is a follow-up. This field is optional.
    */
   previousNote?: string;
-
-  transcript?: string;
 }
 
 export namespace NoteCreateParams {
