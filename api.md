@@ -1,3 +1,10 @@
+# Shared
+
+Types:
+
+- <code><a href="./src/resources/shared.ts">HeadingSection</a></code>
+- <code><a href="./src/resources/shared.ts">Section</a></code>
+
 # Notes
 
 Types:
