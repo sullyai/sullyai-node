@@ -1,6 +1,6 @@
 import { type RequestOptions } from './request-options';
 import type { FilePropertyBag, Fetch } from './builtin-types';
-import type { SullyaiAPI } from '../client';
+import type { SullyAI } from '../client';
 import { File } from './shims/file.node.js';
 import { ReadableStreamFrom } from './shims';
 
@@ -64,7 +64,7 @@ export const isAsyncIterable = (value: any): value is AsyncIterable<any> =>
  */
 export const maybeMultipartFormRequestOptions = async (
   opts: RequestOptions,
-  fetch: SullyaiAPI | Fetch,
+  fetch: SullyAI | Fetch,
 ): Promise<RequestOptions> => {
   if (!hasUploadableValue(opts.body)) return opts;
 
@@ -75,7 +75,7 @@ type MultipartFormRequestOptions = Omit<RequestOptions, 'body'> & { body: unknow
 
 export const multipartFormRequestOptions = async (
   opts: MultipartFormRequestOptions,
-  fetch: SullyaiAPI | Fetch,
+  fetch: SullyAI | Fetch,
 ): Promise<RequestOptions> => {
   return { ...opts, body: await createForm(opts.body, fetch) };
 };
@@ -88,7 +88,7 @@ const supportsFormDataMap = new WeakMap<Fetch, Promise<boolean>>();
  * This function detects if the fetch function provided supports the global FormData object to avoid
  * confusing error messages later on.
  */
-function supportsFormData(fetchObject: SullyaiAPI | Fetch): Promise<boolean> {
+function supportsFormData(fetchObject: SullyAI | Fetch): Promise<boolean> {
   const fetch: Fetch = typeof fetchObject === 'function' ? fetchObject : (fetchObject as any).fetch;
   const cached = supportsFormDataMap.get(fetch);
   if (cached) return cached;
@@ -114,7 +114,7 @@ function supportsFormData(fetchObject: SullyaiAPI | Fetch): Promise<boolean> {
 
 export const createForm = async <T = Record<string, unknown>>(
   body: T | undefined,
-  fetch: SullyaiAPI | Fetch,
+  fetch: SullyAI | Fetch,
 ): Promise<FormData> => {
   if (!(await supportsFormData(fetch))) {
     throw new TypeError(

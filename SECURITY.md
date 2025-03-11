@@ -16,11 +16,11 @@ before making any information public.
 ## Reporting Non-SDK Related Security Issues
 
 If you encounter security issues that are not directly related to SDKs but pertain to the services
-or products provided by Sullyai API please follow the respective company's security reporting guidelines.
+or products provided by Sully AI please follow the respective company's security reporting guidelines.
 
-### Sullyai API Terms and Policies
+### Sully AI Terms and Policies
 
-Please contact dev-feedback@sullyai-api.com for any questions or concerns regarding security of our services.
+Please contact dev-feedback@sullyai.com for any questions or concerns regarding security of our services.
 
 ---
 

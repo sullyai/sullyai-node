@@ -1,12 +1,12 @@
 {
   "name": "@sullyai/sullyai",
   "version": "0.0.1-alpha.0",
-  "description": "The official TypeScript library for the Sullyai API API",
-  "author": "Sullyai API <dev-feedback@sullyai-api.com>",
+  "description": "The official TypeScript library for the Sully AI API",
+  "author": "Sully AI <dev-feedback@sullyai.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:SullyAI/sullyai-node",
+  "repository": "github:sullyai/sullyai-node",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
