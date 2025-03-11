@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import type { LogLevel, Logger } from '../../client';
-import { type SullyaiAPI } from '../../client';
+import { type SullyAI } from '../../client';
 import { RequestOptions } from '../request-options';
 
 const levelNumbers = {
@@ -32,7 +32,7 @@ const noopLogger = {
 
 let cachedLoggers = new WeakMap<Logger, [LogLevel, Logger]>();
 
-export function loggerFor(client: SullyaiAPI): Logger {
+export function loggerFor(client: SullyAI): Logger {
   const logger = client.logger;
   const logLevel = client.logLevel ?? 'off';
   if (!logger) {

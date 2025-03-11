@@ -38,14 +38,14 @@ export namespace NoteStyleCreateResponse {
 
 export interface NoteStyleCreateParams {
   /**
+   * Sample note text to base the style on
+   */
+  sampleNote: string;
+
+  /**
    * Optional instructions for note generation
    */
   instructions?: Array<string>;
-
-  /**
-   * Sample note text to base the style on
-   */
-  sampleNote?: string;
 }
 
 export declare namespace NoteStyles {
