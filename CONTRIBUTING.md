@@ -55,12 +55,12 @@ $ cd sullyai-node
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link sullyai
+$ yarn link @sullyai/sullyai
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global sullyai
+$ pnpm link -—global @sullyai/sullyai
 ```
 
 ## Running tests

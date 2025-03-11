@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { SullyaiAPI } from 'sullyai';
+import { SullyaiAPI } from '@sullyai/sullyai';
 
 const { stringifyQuery } = SullyaiAPI.prototype as any;
 
