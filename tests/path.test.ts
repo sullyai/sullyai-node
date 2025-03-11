@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'sullyai/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from '@sullyai/sullyai/internal/utils/path';
 import { inspect } from 'node:util';
 
 describe('path template tag function', () => {

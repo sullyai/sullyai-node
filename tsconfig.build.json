@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "sullyai/*": ["dist/src/*"],
-      "sullyai": ["dist/src/index.ts"],
+      "@sullyai/sullyai/*": ["dist/src/*"],
+      "@sullyai/sullyai": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,
