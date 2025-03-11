@@ -33,7 +33,7 @@ Types:
 
 Methods:
 
-- <code title="post /v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions/transcriptions.ts">create</a>({ ...params }) -> string</code>
+- <code title="post /v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions/transcriptions.ts">create</a>({ ...params }) -> TranscriptionCreateResponse</code>
 - <code title="get /v1/audio/transcriptions/{transcriptionId}">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions/transcriptions.ts">retrieve</a>(transcriptionID) -> TranscriptionRetrieveResponse</code>
 - <code title="delete /v1/audio/transcriptions/{transcriptionId}">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions/transcriptions.ts">delete</a>(transcriptionID) -> DeleteResponse</code>
 
