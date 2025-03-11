@@ -50,7 +50,7 @@ export type LogLevel = 'off' | 'error' | 'warn' | 'info' | 'debug';
 const parseLogLevel = (
   maybeLevel: string | undefined,
   sourceName: string,
-  client: SullyaiAPI,
+  client: SullyAI,
 ): LogLevel | undefined => {
   if (!maybeLevel) {
     return undefined;
@@ -81,12 +81,12 @@ type Environment = keyof typeof environments;
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['SULLYAI_API_API_KEY'].
+   * Defaults to process.env['SULLYAI_API_KEY'].
    */
   apiKey?: string | undefined;
 
   /**
-   * Defaults to process.env['SULLYAI_API_ACCOUNT_ID'].
+   * Defaults to process.env['SULLYAI_ACCOUNT_ID'].
    */
   accountID?: string | undefined;
 
@@ -102,7 +102,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['SULLYAI_API_BASE_URL'].
+   * Defaults to process.env['SULLY_AI_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -154,7 +154,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['SULLYAI_API_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['SULLY_AI_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -169,9 +169,9 @@ export interface ClientOptions {
 type FinalizedRequestInit = RequestInit & { headers: Headers };
 
 /**
- * API Client for interfacing with the Sullyai API API.
+ * API Client for interfacing with the Sully AI API.
  */
-export class SullyaiAPI {
+export class SullyAI {
   apiKey: string;
   accountID: string;
 
@@ -188,12 +188,12 @@ export class SullyaiAPI {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Sullyai API API.
+   * API Client for interfacing with the Sully AI API.
    *
-   * @param {string | undefined} [opts.apiKey=process.env['SULLYAI_API_API_KEY'] ?? undefined]
-   * @param {string | undefined} [opts.accountID=process.env['SULLYAI_API_ACCOUNT_ID'] ?? undefined]
+   * @param {string | undefined} [opts.apiKey=process.env['SULLYAI_API_KEY'] ?? undefined]
+   * @param {string | undefined} [opts.accountID=process.env['SULLYAI_ACCOUNT_ID'] ?? undefined]
    * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['SULLYAI_API_BASE_URL'] ?? https://api-testing.sully.ai] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['SULLY_AI_BASE_URL'] ?? https://api-testing.sully.ai] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -202,19 +202,19 @@ export class SullyaiAPI {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('SULLYAI_API_BASE_URL'),
-    apiKey = readEnv('SULLYAI_API_API_KEY'),
-    accountID = readEnv('SULLYAI_API_ACCOUNT_ID'),
+    baseURL = readEnv('SULLY_AI_BASE_URL'),
+    apiKey = readEnv('SULLYAI_API_KEY'),
+    accountID = readEnv('SULLYAI_ACCOUNT_ID'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
-      throw new Errors.SullyaiAPIError(
-        "The SULLYAI_API_API_KEY environment variable is missing or empty; either provide it, or instantiate the SullyaiAPI client with an apiKey option, like new SullyaiAPI({ apiKey: 'My API Key' }).",
+      throw new Errors.SullyAIError(
+        "The SULLYAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the SullyAI client with an apiKey option, like new SullyAI({ apiKey: 'My API Key' }).",
       );
     }
     if (accountID === undefined) {
-      throw new Errors.SullyaiAPIError(
-        "The SULLYAI_API_ACCOUNT_ID environment variable is missing or empty; either provide it, or instantiate the SullyaiAPI client with an accountID option, like new SullyaiAPI({ accountID: 'My Account ID' }).",
+      throw new Errors.SullyAIError(
+        "The SULLYAI_ACCOUNT_ID environment variable is missing or empty; either provide it, or instantiate the SullyAI client with an accountID option, like new SullyAI({ accountID: 'My Account ID' }).",
       );
     }
 
@@ -227,20 +227,20 @@ export class SullyaiAPI {
     };
 
     if (baseURL && opts.environment) {
-      throw new Errors.SullyaiAPIError(
-        'Ambiguous URL; The `baseURL` option (or SULLYAI_API_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
+      throw new Errors.SullyAIError(
+        'Ambiguous URL; The `baseURL` option (or SULLY_AI_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
       );
     }
 
     this.baseURL = options.baseURL || environments[options.environment || 'production'];
-    this.timeout = options.timeout ?? SullyaiAPI.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? SullyAI.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
     this.logLevel = defaultLogLevel;
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
-      parseLogLevel(readEnv('SULLYAI_API_LOG'), "process.env['SULLYAI_API_LOG']", this) ??
+      parseLogLevel(readEnv('SULLY_AI_LOG'), "process.env['SULLY_AI_LOG']", this) ??
       defaultLogLevel;
     this.fetchOptions = options.fetchOptions;
     this.maxRetries = options.maxRetries ?? 2;
@@ -297,7 +297,7 @@ export class SullyaiAPI {
         if (value === null) {
           return `${encodeURIComponent(key)}=`;
         }
-        throw new Errors.SullyaiAPIError(
+        throw new Errors.SullyAIError(
           `Cannot stringify type ${typeof value}; Expected string, number, boolean, or null. If you need to pass nested query parameters, you can manually encode them, e.g. { query: { 'foo[key1]': value1, 'foo[key2]': value2 } }, and please open a GitHub issue requesting better support for your use case.`,
         );
       })
@@ -762,10 +762,10 @@ export class SullyaiAPI {
     }
   }
 
-  static SullyaiAPI = this;
+  static SullyAI = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static SullyaiAPIError = Errors.SullyaiAPIError;
+  static SullyAIError = Errors.SullyAIError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -785,10 +785,10 @@ export class SullyaiAPI {
   noteStyles: API.NoteStyles = new API.NoteStyles(this);
   audio: API.Audio = new API.Audio(this);
 }
-SullyaiAPI.Notes = Notes;
-SullyaiAPI.NoteStyles = NoteStyles;
-SullyaiAPI.Audio = Audio;
-export declare namespace SullyaiAPI {
+SullyAI.Notes = Notes;
+SullyAI.NoteStyles = NoteStyles;
+SullyAI.Audio = Audio;
+export declare namespace SullyAI {
   export type RequestOptions = Opts.RequestOptions;
 
   export {

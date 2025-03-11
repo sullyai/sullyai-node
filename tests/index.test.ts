@@ -3,7 +3,7 @@
 import { APIPromise } from '@sullyai/sullyai/api-promise';
 
 import util from 'node:util';
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 import { APIUserAbortError } from '@sullyai/sullyai';
 const defaultFetch = fetch;
 
@@ -20,7 +20,7 @@ describe('instantiate client', () => {
   });
 
   describe('defaultHeaders', () => {
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
       apiKey: 'My API Key',
@@ -55,14 +55,14 @@ describe('instantiate client', () => {
 
     beforeEach(() => {
       process.env = { ...env };
-      process.env['SULLYAI_API_LOG'] = undefined;
+      process.env['SULLY_AI_LOG'] = undefined;
     });
 
     afterEach(() => {
       process.env = env;
     });
 
-    const forceAPIResponseForClient = async (client: SullyaiAPI) => {
+    const forceAPIResponseForClient = async (client: SullyAI) => {
       await new APIPromise(
         client,
         Promise.resolve({
@@ -88,7 +88,7 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         logger: logger,
         logLevel: 'debug',
         apiKey: 'My API Key',
@@ -100,7 +100,7 @@ describe('instantiate client', () => {
     });
 
     test('default logLevel is warn', async () => {
-      const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+      const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
       expect(client.logLevel).toBe('warn');
     });
 
@@ -113,7 +113,7 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         logger: logger,
         logLevel: 'info',
         apiKey: 'My API Key',
@@ -133,8 +133,8 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      process.env['SULLYAI_API_LOG'] = 'debug';
-      const client = new SullyaiAPI({ logger: logger, apiKey: 'My API Key', accountID: 'My Account ID' });
+      process.env['SULLY_AI_LOG'] = 'debug';
+      const client = new SullyAI({ logger: logger, apiKey: 'My API Key', accountID: 'My Account ID' });
       expect(client.logLevel).toBe('debug');
 
       await forceAPIResponseForClient(client);
@@ -150,11 +150,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      process.env['SULLYAI_API_LOG'] = 'not a log level';
-      const client = new SullyaiAPI({ logger: logger, apiKey: 'My API Key', accountID: 'My Account ID' });
+      process.env['SULLY_AI_LOG'] = 'not a log level';
+      const client = new SullyAI({ logger: logger, apiKey: 'My API Key', accountID: 'My Account ID' });
       expect(client.logLevel).toBe('warn');
       expect(warnMock).toHaveBeenCalledWith(
-        'process.env[\'SULLYAI_API_LOG\'] was set to "not a log level", expected one of ["off","error","warn","info","debug"]',
+        'process.env[\'SULLY_AI_LOG\'] was set to "not a log level", expected one of ["off","error","warn","info","debug"]',
       );
     });
 
@@ -167,8 +167,8 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      process.env['SULLYAI_API_LOG'] = 'debug';
-      const client = new SullyaiAPI({
+      process.env['SULLY_AI_LOG'] = 'debug';
+      const client = new SullyAI({
         logger: logger,
         logLevel: 'off',
         apiKey: 'My API Key',
@@ -188,8 +188,8 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      process.env['SULLYAI_API_LOG'] = 'not a log level';
-      const client = new SullyaiAPI({
+      process.env['SULLY_AI_LOG'] = 'not a log level';
+      const client = new SullyAI({
         logger: logger,
         logLevel: 'debug',
         apiKey: 'My API Key',
@@ -202,7 +202,7 @@ describe('instantiate client', () => {
 
   describe('defaultQuery', () => {
     test('with null query params given', () => {
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
         apiKey: 'My API Key',
@@ -212,7 +212,7 @@ describe('instantiate client', () => {
     });
 
     test('multiple default query params', () => {
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
         apiKey: 'My API Key',
@@ -222,7 +222,7 @@ describe('instantiate client', () => {
     });
 
     test('overriding with `undefined`', () => {
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
         apiKey: 'My API Key',
@@ -233,7 +233,7 @@ describe('instantiate client', () => {
   });
 
   test('custom fetch', async () => {
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       baseURL: 'http://localhost:5000/',
       apiKey: 'My API Key',
       accountID: 'My Account ID',
@@ -252,7 +252,7 @@ describe('instantiate client', () => {
 
   test('explicit global fetch', async () => {
     // make sure the global fetch type is assignable to our Fetch type
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       baseURL: 'http://localhost:5000/',
       apiKey: 'My API Key',
       accountID: 'My Account ID',
@@ -261,7 +261,7 @@ describe('instantiate client', () => {
   });
 
   test('custom signal', async () => {
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
       apiKey: 'My API Key',
       accountID: 'My Account ID',
@@ -294,7 +294,7 @@ describe('instantiate client', () => {
       return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       baseURL: 'http://localhost:5000/',
       apiKey: 'My API Key',
       accountID: 'My Account ID',
@@ -307,7 +307,7 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         baseURL: 'http://localhost:5000/custom/path/',
         apiKey: 'My API Key',
         accountID: 'My Account ID',
@@ -316,7 +316,7 @@ describe('instantiate client', () => {
     });
 
     test('no trailing slash', () => {
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         baseURL: 'http://localhost:5000/custom/path',
         apiKey: 'My API Key',
         accountID: 'My Account ID',
@@ -325,11 +325,11 @@ describe('instantiate client', () => {
     });
 
     afterEach(() => {
-      process.env['SULLYAI_API_BASE_URL'] = undefined;
+      process.env['SULLY_AI_BASE_URL'] = undefined;
     });
 
     test('explicit option', () => {
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         baseURL: 'https://example.com',
         apiKey: 'My API Key',
         accountID: 'My Account ID',
@@ -338,33 +338,33 @@ describe('instantiate client', () => {
     });
 
     test('env variable', () => {
-      process.env['SULLYAI_API_BASE_URL'] = 'https://example.com/from_env';
-      const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+      process.env['SULLY_AI_BASE_URL'] = 'https://example.com/from_env';
+      const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
-      process.env['SULLYAI_API_BASE_URL'] = ''; // empty
-      const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+      process.env['SULLY_AI_BASE_URL'] = ''; // empty
+      const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
       expect(client.baseURL).toEqual('https://api-testing.sully.ai');
     });
 
     test('blank env variable', () => {
-      process.env['SULLYAI_API_BASE_URL'] = '  '; // blank
-      const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+      process.env['SULLY_AI_BASE_URL'] = '  '; // blank
+      const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
       expect(client.baseURL).toEqual('https://api-testing.sully.ai');
     });
 
     test('env variable with environment', () => {
-      process.env['SULLYAI_API_BASE_URL'] = 'https://example.com/from_env';
+      process.env['SULLY_AI_BASE_URL'] = 'https://example.com/from_env';
 
       expect(
-        () => new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID', environment: 'production' }),
+        () => new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', environment: 'production' }),
       ).toThrowErrorMatchingInlineSnapshot(
-        `"Ambiguous URL; The \`baseURL\` option (or SULLYAI_API_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+        `"Ambiguous URL; The \`baseURL\` option (or SULLY_AI_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
 
-      const client = new SullyaiAPI({
+      const client = new SullyAI({
         apiKey: 'My API Key',
         accountID: 'My Account ID',
         baseURL: null,
@@ -375,35 +375,35 @@ describe('instantiate client', () => {
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new SullyaiAPI({ maxRetries: 4, apiKey: 'My API Key', accountID: 'My Account ID' });
+    const client = new SullyAI({ maxRetries: 4, apiKey: 'My API Key', accountID: 'My Account ID' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+    const client2 = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['SULLYAI_API_API_KEY'] = 'My API Key';
-    process.env['SULLYAI_API_ACCOUNT_ID'] = 'My Account ID';
-    const client = new SullyaiAPI();
+    process.env['SULLYAI_API_KEY'] = 'My API Key';
+    process.env['SULLYAI_ACCOUNT_ID'] = 'My Account ID';
+    const client = new SullyAI();
     expect(client.apiKey).toBe('My API Key');
     expect(client.accountID).toBe('My Account ID');
   });
 
   test('with overridden environment variable arguments', () => {
     // set options via env var
-    process.env['SULLYAI_API_API_KEY'] = 'another My API Key';
-    process.env['SULLYAI_API_ACCOUNT_ID'] = 'another My Account ID';
-    const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+    process.env['SULLYAI_API_KEY'] = 'another My API Key';
+    process.env['SULLYAI_ACCOUNT_ID'] = 'another My Account ID';
+    const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
     expect(client.apiKey).toBe('My API Key');
     expect(client.accountID).toBe('My Account ID');
   });
 });
 
 describe('request building', () => {
-  const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+  const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
 
   describe('custom headers', () => {
     test('handles undefined', () => {
@@ -422,7 +422,7 @@ describe('request building', () => {
 });
 
 describe('default encoder', () => {
-  const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID' });
+  const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
 
   class Serializable {
     toJSON() {
@@ -507,7 +507,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       apiKey: 'My API Key',
       accountID: 'My Account ID',
       timeout: 10,
@@ -542,7 +542,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       apiKey: 'My API Key',
       accountID: 'My Account ID',
       fetch: testFetch,
@@ -571,7 +571,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       apiKey: 'My API Key',
       accountID: 'My Account ID',
       fetch: testFetch,
@@ -605,7 +605,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       apiKey: 'My API Key',
       accountID: 'My Account ID',
       fetch: testFetch,
@@ -639,7 +639,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new SullyaiAPI({
+    const client = new SullyAI({
       apiKey: 'My API Key',
       accountID: 'My Account ID',
       fetch: testFetch,
@@ -674,7 +674,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID', fetch: testFetch });
+    const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -704,7 +704,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new SullyaiAPI({ apiKey: 'My API Key', accountID: 'My Account ID', fetch: testFetch });
+    const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
