@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { SullyaiAPI } from './client';
+import type { SullyAI } from './client';
 
 export class APIResource {
-  protected _client: SullyaiAPI;
+  protected _client: SullyAI;
 
-  constructor(client: SullyaiAPI) {
+  constructor(client: SullyAI) {
     this._client = client;
   }
 }

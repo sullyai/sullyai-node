@@ -1,10 +1,10 @@
-# Sullyai API TypeScript API Library
+# Sully AI TypeScript API Library
 
 [![NPM version](https://img.shields.io/npm/v/@sullyai/sullyai.svg)](https://npmjs.org/package/@sullyai/sullyai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@sullyai/sullyai)
 
-This library provides convenient access to the Sullyai API REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the Sully AI REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [docs.sullyai-api.com](https://docs.sullyai-api.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.sully.ai](https://docs.sully.ai). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -20,11 +20,11 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 
-const client = new SullyaiAPI({
-  apiKey: process.env['SULLYAI_API_API_KEY'], // This is the default and can be omitted
-  accountID: process.env['SULLYAI_API_ACCOUNT_ID'], // This is the default and can be omitted
+const client = new SullyAI({
+  apiKey: process.env['SULLYAI_API_KEY'], // This is the default and can be omitted
+  accountID: process.env['SULLYAI_ACCOUNT_ID'], // This is the default and can be omitted
   environment: 'environment_1', // defaults to 'production'
 });
 
@@ -43,16 +43,16 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 
-const client = new SullyaiAPI({
-  apiKey: process.env['SULLYAI_API_API_KEY'], // This is the default and can be omitted
-  accountID: process.env['SULLYAI_API_ACCOUNT_ID'], // This is the default and can be omitted
+const client = new SullyAI({
+  apiKey: process.env['SULLYAI_API_KEY'], // This is the default and can be omitted
+  accountID: process.env['SULLYAI_ACCOUNT_ID'], // This is the default and can be omitted
   environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
-  const note: SullyaiAPI.NoteRetrieveResponse = await client.notes.retrieve('REPLACE_ME');
+  const note: SullyAI.NoteRetrieveResponse = await client.notes.retrieve('REPLACE_ME');
 }
 
 main();
@@ -71,9 +71,9 @@ Request parameters that correspond to file uploads can be passed in many differe
 
 ```ts
 import fs from 'fs';
-import SullyaiAPI, { toFile } from '@sullyai/sullyai';
+import SullyAI, { toFile } from '@sullyai/sullyai';
 
-const client = new SullyaiAPI();
+const client = new SullyAI();
 
 // If you have access to Node `fs` we recommend using `fs.createReadStream()`:
 await client.audio.transcriptions.create({ audio: fs.createReadStream('/path/to/file') });
@@ -99,7 +99,7 @@ a subclass of `APIError` will be thrown:
 ```ts
 async function main() {
   const note = await client.notes.retrieve('REPLACE_ME').catch(async (err) => {
-    if (err instanceof SullyaiAPI.APIError) {
+    if (err instanceof SullyAI.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
       console.log(err.headers); // {server: 'nginx', ...}
@@ -136,7 +136,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const client = new SullyaiAPI({
+const client = new SullyAI({
   maxRetries: 0, // default is 2
 });
 
@@ -153,7 +153,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const client = new SullyaiAPI({
+const client = new SullyAI({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -179,7 +179,7 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 
 <!-- prettier-ignore -->
 ```ts
-const client = new SullyaiAPI();
+const client = new SullyAI();
 
 const response = await client.notes.retrieve('REPLACE_ME').asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -200,13 +200,13 @@ console.log(note.data);
 
 The log level can be configured in two ways:
 
-1. Via the `SULLYAI_API_LOG` environment variable
+1. Via the `SULLY_AI_LOG` environment variable
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 
-const client = new SullyaiAPI({
+const client = new SullyAI({
   logLevel: 'debug', // Show all log messages
 });
 ```
@@ -232,13 +232,13 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 import pino from 'pino';
 
 const logger = pino();
 
-const client = new SullyaiAPI({
-  logger: logger.child({ name: 'SullyaiAPI' }),
+const client = new SullyAI({
+  logger: logger.child({ name: 'SullyAI' }),
   logLevel: 'debug', // Send all messages to pino, allowing it to filter
 });
 ```
@@ -302,10 +302,10 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 import fetch from 'my-fetch';
 
-const client = new SullyaiAPI({ fetch });
+const client = new SullyAI({ fetch });
 ```
 
 ### Fetch options
@@ -313,9 +313,9 @@ const client = new SullyaiAPI({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 
-const client = new SullyaiAPI({
+const client = new SullyAI({
   fetchOptions: {
     // `RequestInit` options
   },
@@ -330,11 +330,11 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
-const client = new SullyaiAPI({
+const client = new SullyAI({
   fetchOptions: {
     dispatcher: proxyAgent,
   },
@@ -344,9 +344,9 @@ const client = new SullyaiAPI({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import SullyaiAPI from '@sullyai/sullyai';
+import SullyAI from '@sullyai/sullyai';
 
-const client = new SullyaiAPI({
+const client = new SullyAI({
   fetchOptions: {
     proxy: 'http://localhost:8888',
   },
@@ -356,10 +356,10 @@ const client = new SullyaiAPI({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import SullyaiAPI from 'npm:@sullyai/sullyai';
+import SullyAI from 'npm:@sullyai/sullyai';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
-const client = new SullyaiAPI({
+const client = new SullyAI({
   fetchOptions: {
     client: httpClient,
   },
@@ -378,7 +378,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/SullyAI/sullyai-node/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/sullyai/sullyai-node/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
