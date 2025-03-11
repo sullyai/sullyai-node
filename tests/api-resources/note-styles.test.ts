@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 
 const client = new SullyaiAPI({
   apiKey: 'My API Key',

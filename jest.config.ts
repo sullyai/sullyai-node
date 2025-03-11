@@ -7,8 +7,8 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^sullyai-api$': '<rootDir>/src/index.ts',
-    '^sullyai-api/(.*)$': '<rootDir>/src/$1',
+    '^sullyai$': '<rootDir>/src/index.ts',
+    '^sullyai/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

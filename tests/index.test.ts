@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'sullyai-api/api-promise';
+import { APIPromise } from 'sullyai/api-promise';
 
 import util from 'node:util';
-import SullyaiAPI from 'sullyai-api';
-import { APIUserAbortError } from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
+import { APIUserAbortError } from 'sullyai';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
