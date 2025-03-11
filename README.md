@@ -1,6 +1,6 @@
 # Sullyai API TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/sullyai-api.svg)](https://npmjs.org/package/sullyai-api) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/sullyai-api)
+[![NPM version](https://img.shields.io/npm/v/sullyai.svg)](https://npmjs.org/package/sullyai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/sullyai)
 
 This library provides convenient access to the Sullyai API REST API from server-side TypeScript or JavaScript.
 
@@ -11,11 +11,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:SullyAI/sullyai-node.git
+npm install sullyai
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npm install sullyai-api`
 
 ## Usage
 
@@ -23,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 
 const client = new SullyaiAPI({
   apiKey: process.env['SULLYAI_API_API_KEY'], // This is the default and can be omitted
@@ -46,7 +43,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 
 const client = new SullyaiAPI({
   apiKey: process.env['SULLYAI_API_API_KEY'], // This is the default and can be omitted
@@ -74,7 +71,7 @@ Request parameters that correspond to file uploads can be passed in many differe
 
 ```ts
 import fs from 'fs';
-import SullyaiAPI, { toFile } from 'sullyai-api';
+import SullyaiAPI, { toFile } from 'sullyai';
 
 const client = new SullyaiAPI();
 
@@ -207,7 +204,7 @@ The log level can be configured in two ways:
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 
 const client = new SullyaiAPI({
   logLevel: 'debug', // Show all log messages
@@ -235,7 +232,7 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 import pino from 'pino';
 
 const logger = pino();
@@ -305,7 +302,7 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 import fetch from 'my-fetch';
 
 const client = new SullyaiAPI({ fetch });
@@ -316,7 +313,7 @@ const client = new SullyaiAPI({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 
 const client = new SullyaiAPI({
   fetchOptions: {
@@ -333,7 +330,7 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
@@ -347,7 +344,7 @@ const client = new SullyaiAPI({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import SullyaiAPI from 'sullyai-api';
+import SullyaiAPI from 'sullyai';
 
 const client = new SullyaiAPI({
   fetchOptions: {
@@ -359,7 +356,7 @@ const client = new SullyaiAPI({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import SullyaiAPI from 'npm:sullyai-api';
+import SullyaiAPI from 'npm:sullyai';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
 const client = new SullyaiAPI({
