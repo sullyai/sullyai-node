@@ -10,8 +10,8 @@ const client = new SullyAI({
 
 describe('resource noteStyles', () => {
   // skipped: tests are disabled for the time being
-  test.skip('create', async () => {
-    const responsePromise = client.noteStyles.create({});
+  test.skip('create: only required params', async () => {
+    const responsePromise = client.noteStyles.create({ sampleNote: 'sampleNote' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -19,5 +19,10 @@ describe('resource noteStyles', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('create: required and optional params', async () => {
+    const response = await client.noteStyles.create({ sampleNote: 'sampleNote', instructions: ['string'] });
   });
 });
