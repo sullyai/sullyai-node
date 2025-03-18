@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-03-15)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** manual updates ([#10](https://github.com/sullyai/sullyai-node/issues/10)) ([2cf8084](https://github.com/sullyai/sullyai-node/commit/2cf80844ed5d64784cc50b984995b7b3c91b81bf))
+
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#13](https://github.com/sullyai/sullyai-node/issues/13)) ([1e54705](https://github.com/sullyai/sullyai-node/commit/1e54705e2a4bb903f08edac79c10cf74a77e5df6))
+* **internal:** add mts file + crypto shim types ([#14](https://github.com/sullyai/sullyai-node/issues/14)) ([4dbcbd8](https://github.com/sullyai/sullyai-node/commit/4dbcbd80d57776fc984b0b122a234af6ee690de5))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#12](https://github.com/sullyai/sullyai-node/issues/12)) ([00b2cde](https://github.com/sullyai/sullyai-node/commit/00b2cdeb90aef1b3de08dab3881c23227bfa33f5))
+
 ## 0.1.0-alpha.1 (2025-03-11)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/sullyai/sullyai-node/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
