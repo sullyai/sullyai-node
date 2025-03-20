@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-03-20)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#18](https://github.com/sullyai/sullyai-node/issues/18)) ([17fd733](https://github.com/sullyai/sullyai-node/commit/17fd7333104b3d117e2fa17af55eb3486e69f0ad))
+* **exports:** stop using path fallbacks ([#19](https://github.com/sullyai/sullyai-node/issues/19)) ([27419cb](https://github.com/sullyai/sullyai-node/commit/27419cb7d156126a1a8aa758d0f0209b4cfedc08))
+* **internal:** minor client file refactoring ([#16](https://github.com/sullyai/sullyai-node/issues/16)) ([e31b6fe](https://github.com/sullyai/sullyai-node/commit/e31b6fe498a7cb69d7a0f6b72227d160ebc7a4de))
+
 ## 0.1.0-alpha.2 (2025-03-15)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
