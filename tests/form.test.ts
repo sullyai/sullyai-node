@@ -1,5 +1,5 @@
 import { multipartFormRequestOptions, createForm } from '@sullyai/sullyai/internal/uploads';
-import { toFile } from '@sullyai/sullyai/uploads';
+import { toFile } from '@sullyai/sullyai/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
