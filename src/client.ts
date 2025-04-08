@@ -18,7 +18,7 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { type Fetch } from './internal/builtin-types';
-import { HeadersLike, NullableHeaders, buildHeaders, isEmptyHeaders } from './internal/headers';
+import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import { NoteStyleCreateParams, NoteStyleCreateResponse, NoteStyles } from './resources/note-styles';
 import {
@@ -219,27 +219,16 @@ export class SullyAI {
     return;
   }
 
-  protected authHeaders(opts: FinalRequestOptions): Headers | undefined {
-    const apiKeyAuth = this.apiKeyAuth(opts);
-    const accountIDAuth = this.accountIDAuth(opts);
-
-    if (
-      apiKeyAuth != null &&
-      !isEmptyHeaders(apiKeyAuth) &&
-      accountIDAuth != null &&
-      !isEmptyHeaders(accountIDAuth)
-    ) {
-      return { ...apiKeyAuth, ...accountIDAuth };
-    }
-    return undefined;
+  protected authHeaders(opts: FinalRequestOptions): NullableHeaders | undefined {
+    return buildHeaders([this.apiKeyAuth(opts), this.accountIDAuth(opts)]);
   }
 
-  protected apiKeyAuth(opts: FinalRequestOptions): Headers | undefined {
-    return new Headers({ 'X-API-KEY': this.apiKey });
+  protected apiKeyAuth(opts: FinalRequestOptions): NullableHeaders | undefined {
+    return buildHeaders([{ 'X-API-KEY': this.apiKey }]);
   }
 
-  protected accountIDAuth(opts: FinalRequestOptions): Headers | undefined {
-    return new Headers({ 'X-ACCOUNT-ID': this.accountID });
+  protected accountIDAuth(opts: FinalRequestOptions): NullableHeaders | undefined {
+    return buildHeaders([{ 'X-ACCOUNT-ID': this.accountID }]);
   }
 
   /**
