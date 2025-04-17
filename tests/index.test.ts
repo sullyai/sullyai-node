@@ -346,20 +346,20 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['SULLY_AI_BASE_URL'] = ''; // empty
       const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
-      expect(client.baseURL).toEqual('https://api-testing.sully.ai');
+      expect(client.baseURL).toEqual('https://api.sully.ai');
     });
 
     test('blank env variable', () => {
       process.env['SULLY_AI_BASE_URL'] = '  '; // blank
       const client = new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID' });
-      expect(client.baseURL).toEqual('https://api-testing.sully.ai');
+      expect(client.baseURL).toEqual('https://api.sully.ai');
     });
 
     test('env variable with environment', () => {
       process.env['SULLY_AI_BASE_URL'] = 'https://example.com/from_env';
 
       expect(
-        () => new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', environment: 'testing' }),
+        () => new SullyAI({ apiKey: 'My API Key', accountID: 'My Account ID', environment: 'production' }),
       ).toThrowErrorMatchingInlineSnapshot(
         `"Ambiguous URL; The \`baseURL\` option (or SULLY_AI_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
@@ -368,9 +368,9 @@ describe('instantiate client', () => {
         apiKey: 'My API Key',
         accountID: 'My Account ID',
         baseURL: null,
-        environment: 'testing',
+        environment: 'production',
       });
-      expect(client.baseURL).toEqual('https://api-testing.sully.ai');
+      expect(client.baseURL).toEqual('https://api.sully.ai');
     });
   });
 
