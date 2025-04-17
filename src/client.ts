@@ -34,8 +34,8 @@ import { isEmptyObj } from './internal/utils/values';
 import { Audio } from './resources/audio/audio';
 
 const environments = {
-  testing: 'https://api-testing.sully.ai',
   production: 'https://api.sully.ai',
+  test: 'https://api-testing.sully.ai',
 };
 type Environment = keyof typeof environments;
 
@@ -54,8 +54,8 @@ export interface ClientOptions {
    * Specifies the environment to use for the API.
    *
    * Each environment maps to a different base URL:
-   * - `testing` corresponds to `https://api-testing.sully.ai`
    * - `production` corresponds to `https://api.sully.ai`
+   * - `test` corresponds to `https://api-testing.sully.ai`
    */
   environment?: Environment | undefined;
 
@@ -150,8 +150,8 @@ export class SullyAI {
    *
    * @param {string | undefined} [opts.apiKey=process.env['SULLYAI_API_KEY'] ?? undefined]
    * @param {string | undefined} [opts.accountID=process.env['SULLYAI_ACCOUNT_ID'] ?? undefined]
-   * @param {Environment} [opts.environment=testing] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['SULLY_AI_BASE_URL'] ?? https://api-testing.sully.ai] - Override the default base URL for the API.
+   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
+   * @param {string} [opts.baseURL=process.env['SULLY_AI_BASE_URL'] ?? https://api.sully.ai] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -181,7 +181,7 @@ export class SullyAI {
       accountID,
       ...opts,
       baseURL,
-      environment: opts.environment ?? 'testing',
+      environment: opts.environment ?? 'production',
     };
 
     if (baseURL && opts.environment) {
@@ -190,7 +190,7 @@ export class SullyAI {
       );
     }
 
-    this.baseURL = options.baseURL || environments[options.environment || 'testing'];
+    this.baseURL = options.baseURL || environments[options.environment || 'production'];
     this.timeout = options.timeout ?? SullyAI.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
