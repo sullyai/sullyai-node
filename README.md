@@ -25,7 +25,7 @@ import SullyAI from '@sullyai/sullyai';
 const client = new SullyAI({
   apiKey: process.env['SULLYAI_API_KEY'], // This is the default and can be omitted
   accountID: process.env['SULLYAI_ACCOUNT_ID'], // This is the default and can be omitted
-  environment: 'production', // defaults to 'testing'
+  environment: 'test', // defaults to 'production'
 });
 
 async function main() {
@@ -48,7 +48,7 @@ import SullyAI from '@sullyai/sullyai';
 const client = new SullyAI({
   apiKey: process.env['SULLYAI_API_KEY'], // This is the default and can be omitted
   accountID: process.env['SULLYAI_ACCOUNT_ID'], // This is the default and can be omitted
-  environment: 'production', // defaults to 'testing'
+  environment: 'test', // defaults to 'production'
 });
 
 async function main() {
