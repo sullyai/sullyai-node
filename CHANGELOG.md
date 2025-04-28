@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-04-24)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([024c61a](https://github.com/sullyai/sullyai-node/commit/024c61aab2b0380aca600a32ab41192549e66e3f))
+* **ci:** only use depot for staging repos ([8f82bbb](https://github.com/sullyai/sullyai-node/commit/8f82bbb4d9ee78c85c6b21a521bb7db41ccf9116))
+* **internal:** codegen related update ([4dda65f](https://github.com/sullyai/sullyai-node/commit/4dda65ff720fae9a4319ea585e9e176bcef90f5e))
+* **perf:** faster base64 decoding ([e32d3b4](https://github.com/sullyai/sullyai-node/commit/e32d3b412ce95bb5c3208e785a46c5ed087e1295))
+
 ## 0.1.0-alpha.4 (2025-04-17)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
