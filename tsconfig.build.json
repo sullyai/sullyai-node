@@ -6,7 +6,7 @@
     "rootDir": "./dist/src",
     "paths": {
       "@sullyai/sullyai/*": ["dist/src/*"],
-      "@sullyai/sullyai": ["dist/src/index.ts"],
+      "@sullyai/sullyai": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
