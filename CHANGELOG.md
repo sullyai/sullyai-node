@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-05-05)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Features
+
+* **api:** api update ([fd4aeb0](https://github.com/sullyai/sullyai-node/commit/fd4aeb02376fab5e8dc1a919a656a8c8478a2890))
+
+
+### Chores
+
+* **internal:** codegen related update ([1d1863e](https://github.com/sullyai/sullyai-node/commit/1d1863e7fd2721f81202fddf0716c35a5c9108aa))
+* **internal:** refactor utils ([cdb9c08](https://github.com/sullyai/sullyai-node/commit/cdb9c08c614083621a6547b75a4c9c2647a555cf))
+* **internal:** share typescript helpers ([3d89658](https://github.com/sullyai/sullyai-node/commit/3d89658def7349fd8a7136872fdf8ba4210cc9e7))
+
+
+### Documentation
+
+* **readme:** fix typo ([1a8d3c5](https://github.com/sullyai/sullyai-node/commit/1a8d3c587398a4dd4f821debe2d0a1b4a2f0f23b))
+
 ## 0.1.0-alpha.5 (2025-04-24)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
