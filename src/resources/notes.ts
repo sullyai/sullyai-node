@@ -8,6 +8,15 @@ import { path } from '../internal/utils/path';
 export class Notes extends APIResource {
   /**
    * Creates a new note
+   *
+   * @example
+   * ```ts
+   * const note = await client.notes.create({
+   *   date: '2019-12-27',
+   *   transcript:
+   *     "Hey, how's it going? Good good yeah, so what's going on? Yeah, hi I'm Edward yeah hi hi Edward. How's it going? Yeah, good good. So I've been having a couple of issues like my back pain and knee pain.",
+   * });
+   * ```
    */
   create(body: NoteCreateParams, options?: RequestOptions): APIPromise<NoteCreateResponse> {
     return this._client.post('/v1/notes', { body, ...options });
@@ -15,6 +24,11 @@ export class Notes extends APIResource {
 
   /**
    * Gets a single note based on the ID supplied
+   *
+   * @example
+   * ```ts
+   * const note = await client.notes.retrieve('noteId');
+   * ```
    */
   retrieve(noteID: string, options?: RequestOptions): APIPromise<NoteRetrieveResponse> {
     return this._client.get(path`/v1/notes/${noteID}`, options);
@@ -22,6 +36,11 @@ export class Notes extends APIResource {
 
   /**
    * Deletes a single note based on the ID supplied
+   *
+   * @example
+   * ```ts
+   * const deleteResponse = await client.notes.delete('noteId');
+   * ```
    */
   delete(noteID: string, options?: RequestOptions): APIPromise<DeleteResponse> {
     return this._client.delete(path`/v1/notes/${noteID}`, options);
