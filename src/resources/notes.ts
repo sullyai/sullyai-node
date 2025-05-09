@@ -153,6 +153,9 @@ export interface NoteCreateParams {
    */
   date: string;
 
+  /**
+   * The raw medical transcript text to be processed into a clinical note
+   */
   transcript: string;
 
   /**
@@ -171,6 +174,9 @@ export interface NoteCreateParams {
    */
   medicationList?: string;
 
+  /**
+   * Configuration object specifying the style and format of the generated note
+   */
   noteType?: NoteCreateParams.NoteType;
 
   /**
@@ -185,6 +191,9 @@ export interface NoteCreateParams {
 }
 
 export namespace NoteCreateParams {
+  /**
+   * Configuration object specifying the style and format of the generated note
+   */
   export interface NoteType {
     /**
      * A brief overview of the note.
@@ -223,10 +232,19 @@ export namespace NoteCreateParams {
    * Optional patient information
    */
   export interface PatientInfo {
+    /**
+     * Patient's date of birth in ISO-8601 format (YYYY-MM-DD)
+     */
     dateOfBirth?: string;
 
+    /**
+     * Patient's gender identity
+     */
     gender?: 'male' | 'female' | 'other' | 'prefer not to say' | 'unspecified';
 
+    /**
+     * Patient's full name
+     */
     name?: string;
   }
 }
