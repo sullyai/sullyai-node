@@ -211,6 +211,25 @@ export class SullyAI {
     this.accountID = accountID;
   }
 
+  /**
+   * Create a new client instance re-using the same options given to the current client with optional overriding.
+   */
+  withOptions(options: Partial<ClientOptions>): this {
+    return new (this.constructor as any as new (props: ClientOptions) => typeof this)({
+      ...this._options,
+      environment: options.environment ? options.environment : undefined,
+      baseURL: options.environment ? undefined : this.baseURL,
+      maxRetries: this.maxRetries,
+      timeout: this.timeout,
+      logger: this.logger,
+      logLevel: this.logLevel,
+      fetchOptions: this.fetchOptions,
+      apiKey: this.apiKey,
+      accountID: this.accountID,
+      ...options,
+    });
+  }
+
   protected defaultQuery(): Record<string, string | undefined> | undefined {
     return this._options.defaultQuery;
   }

@@ -15,6 +15,14 @@ export class Transcriptions extends APIResource {
 
   /**
    * Creates a new audio transcription
+   *
+   * @example
+   * ```ts
+   * const transcription =
+   *   await client.audio.transcriptions.create({
+   *     audio: fs.createReadStream('path/to/file'),
+   *   });
+   * ```
    */
   create(body: TranscriptionCreateParams, options?: RequestOptions): APIPromise<TranscriptionCreateResponse> {
     return this._client.post(
@@ -25,6 +33,14 @@ export class Transcriptions extends APIResource {
 
   /**
    * Gets a single audio transcription based on the ID supplied
+   *
+   * @example
+   * ```ts
+   * const transcription =
+   *   await client.audio.transcriptions.retrieve(
+   *     'transcriptionId',
+   *   );
+   * ```
    */
   retrieve(transcriptionID: string, options?: RequestOptions): APIPromise<TranscriptionRetrieveResponse> {
     return this._client.get(path`/v1/audio/transcriptions/${transcriptionID}`, options);
@@ -32,6 +48,14 @@ export class Transcriptions extends APIResource {
 
   /**
    * Deletes a single audio transcription based on the ID supplied
+   *
+   * @example
+   * ```ts
+   * const deleteResponse =
+   *   await client.audio.transcriptions.delete(
+   *     'transcriptionId',
+   *   );
+   * ```
    */
   delete(transcriptionID: string, options?: RequestOptions): APIPromise<NotesAPI.DeleteResponse> {
     return this._client.delete(path`/v1/audio/transcriptions/${transcriptionID}`, options);

@@ -7,6 +7,14 @@ import { RequestOptions } from '../../../internal/request-options';
 export class Stream extends APIResource {
   /**
    * Create a temporary authentication token for Streaming Speech-to-Text
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.audio.transcriptions.stream.createToken({
+   *     expiresIn: 3600,
+   *   });
+   * ```
    */
   createToken(
     body: StreamCreateTokenParams,
