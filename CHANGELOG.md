@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-05-09)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Features
+
+* **api:** api update ([9434cd1](https://github.com/sullyai/sullyai-node/commit/9434cd1cd22762c3166b0183617f0c7d9f16c3f2))
+* **api:** api update ([3f89b6f](https://github.com/sullyai/sullyai-node/commit/3f89b6f7f9350fda5133fc177703bd7997c8cda8))
+* **client:** add withOptions helper ([6cb497a](https://github.com/sullyai/sullyai-node/commit/6cb497a49f874e15cf80ebf64a4687b3d8581817))
+
+
+### Chores
+
+* **client:** drop support for EOL node versions ([be02674](https://github.com/sullyai/sullyai-node/commit/be02674fdab9d15c98e26bf1a287818246d97a2e))
+
+
+### Documentation
+
+* add examples to tsdocs ([35f9b13](https://github.com/sullyai/sullyai-node/commit/35f9b1304d899fbdeadded6da1564150b72d1b1c))
+
 ## 0.1.0-alpha.6 (2025-05-05)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
