@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-05-13)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Bug Fixes
+
+* **client:** always overwrite when merging headers ([4f5b00f](https://github.com/sullyai/sullyai-node/commit/4f5b00fbc886f35297e6fc43460e39a556161c64))
+
+
+### Chores
+
+* **package:** remove engines ([6ab0b49](https://github.com/sullyai/sullyai-node/commit/6ab0b49715c08c7eef0d37185813d20f4710ef19))
+
 ## 0.1.0-alpha.7 (2025-05-09)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
