@@ -28,13 +28,9 @@ const client = new SullyAI({
   environment: 'test', // defaults to 'production'
 });
 
-async function main() {
-  const note = await client.notes.retrieve('REPLACE_ME');
+const note = await client.notes.retrieve('REPLACE_ME');
 
-  console.log(note.data);
-}
-
-main();
+console.log(note.data);
 ```
 
 ### Request & Response types
@@ -51,11 +47,7 @@ const client = new SullyAI({
   environment: 'test', // defaults to 'production'
 });
 
-async function main() {
-  const note: SullyAI.NoteRetrieveResponse = await client.notes.retrieve('REPLACE_ME');
-}
-
-main();
+const note: SullyAI.NoteRetrieveResponse = await client.notes.retrieve('REPLACE_ME');
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -97,19 +89,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const note = await client.notes.retrieve('REPLACE_ME').catch(async (err) => {
-    if (err instanceof SullyAI.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const note = await client.notes.retrieve('REPLACE_ME').catch(async (err) => {
+  if (err instanceof SullyAI.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
