@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-06-07)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Bug Fixes
+
+* **client:** always overwrite when merging headers ([4f5b00f](https://github.com/sullyai/sullyai-node/commit/4f5b00fbc886f35297e6fc43460e39a556161c64))
+* compat with more runtimes ([02c73c0](https://github.com/sullyai/sullyai-node/commit/02c73c0a098220e88e2480de57c0c3dd0170a26a))
+
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([c970e1c](https://github.com/sullyai/sullyai-node/commit/c970e1c57701adc4cd8de603619ebf7f9c881165))
+* avoid type error in certain environments ([ed2322a](https://github.com/sullyai/sullyai-node/commit/ed2322a22faa87d0e33944d54029e1ef725d41b3))
+* **deps:** bump eslint-plugin-prettier ([138ca50](https://github.com/sullyai/sullyai-node/commit/138ca50cd456ac2a9218b82875442f114bf92140))
+* **docs:** grammar improvements ([3858c42](https://github.com/sullyai/sullyai-node/commit/3858c42e409eee93f27aa2f74b17ebc136f6729f))
+* **docs:** use top-level-await in example snippets ([cae8714](https://github.com/sullyai/sullyai-node/commit/cae871444ffc52d6898bc46c8fc92b39222de9a1))
+* improve publish-npm script --latest tag logic ([01e9858](https://github.com/sullyai/sullyai-node/commit/01e9858239bc0435bbbb0744d1f4365815024774))
+* **internal:** fix readablestream types in node 20 ([6b37d1d](https://github.com/sullyai/sullyai-node/commit/6b37d1d9a0d7709afb335f530df769c48b0a721d))
+* **internal:** update jest config ([cb6e629](https://github.com/sullyai/sullyai-node/commit/cb6e629059db1b6b96ca7b6d748e65c9897c0915))
+* **package:** remove engines ([6ab0b49](https://github.com/sullyai/sullyai-node/commit/6ab0b49715c08c7eef0d37185813d20f4710ef19))
+
 ## 0.1.0-alpha.7 (2025-05-09)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
