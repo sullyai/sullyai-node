@@ -169,6 +169,13 @@ export interface NoteCreateParams {
   instructions?: Array<string> | null;
 
   /**
+   * Language code for the transcript content. While multiple languages are
+   * supported, English ('en') is recommended for optimal output quality and
+   * accuracy.
+   */
+  language?: 'en' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ru' | 'zh';
+
+  /**
    * List of up to 50 medications (comma separated) to use as reference for fixing
    * spelling errors. This field is optional.
    */
