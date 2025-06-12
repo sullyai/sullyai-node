@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2025-06-12)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Features
+
+* **api:** api update ([8924f3b](https://github.com/sullyai/sullyai-node/commit/8924f3b81cb35118f7d2196caff0c523d2b638a6))
+
 ## 0.1.0-alpha.8 (2025-06-07)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
