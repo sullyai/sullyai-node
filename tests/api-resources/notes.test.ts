@@ -37,6 +37,7 @@ describe('resource notes', () => {
         'Include key details without unnecessary elaboration.',
         'Ensure clarity for a general audience.',
       ],
+      language: 'en',
       medicationList: 'medicationList',
       noteType: {
         description: 'description',
