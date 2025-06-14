@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-06-14)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([a503f8e](https://github.com/sullyai/sullyai-node/commit/a503f8e1218cd22cab2b55b962e19b77e034139f))
+
+
+### Chores
+
+* **internal:** add pure annotations, make base APIResource abstract ([2cf979b](https://github.com/sullyai/sullyai-node/commit/2cf979b1c5a6e4bc169e9e113e99246371071dae))
+
 ## 0.1.0-alpha.9 (2025-06-12)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
