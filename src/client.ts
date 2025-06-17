@@ -5,7 +5,6 @@ import type { HTTPMethod, PromiseOrValue, MergedRequestInit, FinalizedRequestIni
 import { uuid4 } from './internal/utils/uuid';
 import { validatePositiveInteger, isAbsoluteURL, safeJSON } from './internal/utils/values';
 import { sleep } from './internal/utils/sleep';
-import { type Logger, type LogLevel, parseLogLevel } from './internal/utils/log';
 export type { Logger, LogLevel } from './internal/utils/log';
 import { castToError, isAbortError } from './internal/errors';
 import type { APIResponseProps } from './internal/parse';
@@ -17,9 +16,6 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { type Fetch } from './internal/builtin-types';
-import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
-import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import { NoteStyleCreateParams, NoteStyleCreateResponse, NoteStyles } from './resources/note-styles';
 import {
   DeleteResponse,
@@ -28,10 +24,19 @@ import {
   NoteRetrieveResponse,
   Notes,
 } from './resources/notes';
-import { readEnv } from './internal/utils/env';
-import { formatRequestDetails, loggerFor } from './internal/utils/log';
-import { isEmptyObj } from './internal/utils/values';
 import { Audio } from './resources/audio/audio';
+import { type Fetch } from './internal/builtin-types';
+import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
+import { FinalRequestOptions, RequestOptions } from './internal/request-options';
+import { readEnv } from './internal/utils/env';
+import {
+  type LogLevel,
+  type Logger,
+  formatRequestDetails,
+  loggerFor,
+  parseLogLevel,
+} from './internal/utils/log';
+import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
   production: 'https://api.sully.ai',
