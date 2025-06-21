@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-06-21)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs ([d490335](https://github.com/sullyai/sullyai-node/commit/d490335f6f21d5addfe4f8fd15c876e459c1c5fa))
+
+
+### Bug Fixes
+
+* **client:** explicitly copy fetch in withOptions ([32c3795](https://github.com/sullyai/sullyai-node/commit/32c37951a7a4ee5ce1a39e6e8410d6983e9517cc))
+* publish script — handle NPM errors correctly ([a503f8e](https://github.com/sullyai/sullyai-node/commit/a503f8e1218cd22cab2b55b962e19b77e034139f))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([bed62b2](https://github.com/sullyai/sullyai-node/commit/bed62b2689618b7f3ad580f4400f184a345a7935))
+* **client:** refactor imports ([a871e19](https://github.com/sullyai/sullyai-node/commit/a871e19c5c081a65206f3a94f8e85c3446d5e740))
+* **internal:** add pure annotations, make base APIResource abstract ([2cf979b](https://github.com/sullyai/sullyai-node/commit/2cf979b1c5a6e4bc169e9e113e99246371071dae))
+* **readme:** update badges ([61ac6b7](https://github.com/sullyai/sullyai-node/commit/61ac6b729c9cdad2a7cab454c126ce69533d2fea))
+* **readme:** use better example snippet for undocumented params ([b2325e1](https://github.com/sullyai/sullyai-node/commit/b2325e18496150bcf4c22eb27126a547c8acfc2b))
+
 ## 0.1.0-alpha.9 (2025-06-12)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
