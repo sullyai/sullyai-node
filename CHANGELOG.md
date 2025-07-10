@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-07-10)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Chores
+
+* add docs to RequestOptions type ([4c09a47](https://github.com/sullyai/sullyai-node/commit/4c09a47e22830439d9b9bcf58307765734b2239d))
+* **client:** improve path param validation ([7fd09af](https://github.com/sullyai/sullyai-node/commit/7fd09aff98be5295b301357c43f933f2b79d533b))
+* make some internal functions async ([9de1862](https://github.com/sullyai/sullyai-node/commit/9de186280591846ba6d8e8eee2a98919b1215452))
+
 ## 0.1.0-alpha.10 (2025-06-28)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
