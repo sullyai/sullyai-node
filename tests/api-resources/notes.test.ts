@@ -12,7 +12,6 @@ describe('resource notes', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
     const responsePromise = client.notes.create({
-      date: '2019-12-27',
       transcript:
         "Hey, how's it going? Good good yeah, so what's going on? Yeah, hi I'm Edward yeah hi hi Edward. How's it going? Yeah, good good. So I've been having a couple of issues like my back pain and knee pain.",
     });
@@ -28,10 +27,10 @@ describe('resource notes', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
     const response = await client.notes.create({
-      date: '2019-12-27',
       transcript:
         "Hey, how's it going? Good good yeah, so what's going on? Yeah, hi I'm Edward yeah hi hi Edward. How's it going? Yeah, good good. So I've been having a couple of issues like my back pain and knee pain.",
       context: 'context',
+      date: '3216-99-02T56:01:57Z',
       instructions: [
         'Use a professional and concise tone.',
         'Include key details without unnecessary elaboration.',
