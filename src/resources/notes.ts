@@ -12,7 +12,6 @@ export class Notes extends APIResource {
    * @example
    * ```ts
    * const note = await client.notes.create({
-   *   date: '2019-12-27',
    *   transcript:
    *     "Hey, how's it going? Good good yeah, so what's going on? Yeah, hi I'm Edward yeah hi hi Edward. How's it going? Yeah, good good. So I've been having a couple of issues like my back pain and knee pain.",
    * });
@@ -149,11 +148,6 @@ export namespace NoteRetrieveResponse {
 
 export interface NoteCreateParams {
   /**
-   * Date of the patient encounter
-   */
-  date: string;
-
-  /**
    * The raw medical transcript text to be processed into a clinical note
    */
   transcript: string;
@@ -162,6 +156,12 @@ export interface NoteCreateParams {
    * Additional context for note generation. This field is optional.
    */
   context?: string | null;
+
+  /**
+   * Date of the patient encounter in ISO format (YYYY-MM-DD) or ISO datetime format
+   * (YYYY-MM-DDTHH:mm:ssZ)
+   */
+  date?: string;
 
   /**
    * Special instructions for note generation. This field is optional.
