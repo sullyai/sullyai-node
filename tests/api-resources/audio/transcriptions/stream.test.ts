@@ -9,7 +9,7 @@ const client = new SullyAI({
 });
 
 describe('resource stream', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('createToken: only required params', async () => {
     const responsePromise = client.audio.transcriptions.stream.createToken({ expiresIn: 3600 });
     const rawResponse = await responsePromise.asResponse();
@@ -21,7 +21,7 @@ describe('resource stream', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('createToken: required and optional params', async () => {
     const response = await client.audio.transcriptions.stream.createToken({ expiresIn: 3600 });
   });
