@@ -9,7 +9,7 @@ const client = new SullyAI({
 });
 
 describe('resource notes', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.notes.create({
       transcript:
@@ -24,7 +24,7 @@ describe('resource notes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.notes.create({
       transcript:
@@ -50,7 +50,7 @@ describe('resource notes', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.notes.retrieve('noteId');
     const rawResponse = await responsePromise.asResponse();
@@ -62,7 +62,7 @@ describe('resource notes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.notes.delete('noteId');
     const rawResponse = await responsePromise.asResponse();
