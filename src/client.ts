@@ -774,9 +774,11 @@ export class SullyAI {
   noteStyles: API.NoteStyles = new API.NoteStyles(this);
   audio: API.Audio = new API.Audio(this);
 }
+
 SullyAI.Notes = Notes;
 SullyAI.NoteStyles = NoteStyles;
 SullyAI.Audio = Audio;
+
 export declare namespace SullyAI {
   export type RequestOptions = Opts.RequestOptions;
 
