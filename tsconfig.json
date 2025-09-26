@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@sullyai/sullyai/*": ["src/*"],
-      "@sullyai/sullyai": ["src/index.ts"]
+      "@sullyai/sullyai/*": ["./src/*"],
+      "@sullyai/sullyai": ["./src/index.ts"]
     },
     "noEmit": true,
 
