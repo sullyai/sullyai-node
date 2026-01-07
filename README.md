@@ -78,7 +78,9 @@ await client.audio.transcriptions.create({ audio: await fetch('https://somesite/
 
 // Finally, if none of the above are convenient, you can use our `toFile` helper:
 await client.audio.transcriptions.create({ audio: await toFile(Buffer.from('my bytes'), 'file') });
-await client.audio.transcriptions.create({ audio: await toFile(new Uint8Array([0, 1, 2]), 'file') });
+await client.audio.transcriptions.create({
+  audio: await toFile(new Uint8Array([0, 1, 2]), 'file'),
+});
 ```
 
 ## Handling errors

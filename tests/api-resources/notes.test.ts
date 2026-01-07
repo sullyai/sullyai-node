@@ -45,7 +45,11 @@ describe('resource notes', () => {
           'write a standard clinical SOAP note with the following sections: - **Subjective**: Contains detailed HPI. - **Objective**: Contains PE and ROS. - **Assessment**: Contains differential diagnoses with corresponding plans. - **Patient Instructions**: Contains a list of instructions for the patient.',
         type: 'note_style',
       },
-      patientInfo: { dateOfBirth: '2019-12-27', gender: 'male', name: 'name' },
+      patientInfo: {
+        dateOfBirth: '2019-12-27',
+        gender: 'male',
+        name: 'name',
+      },
       previousNote: 'previousNote',
     });
   });
