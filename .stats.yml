@@ -1,4 +1,4 @@
 configured_endpoints: 8
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/sully-ai%2Fsullyai-api-a6ecf503233cb95bdebd7029c16a9893d634e69fdfc6beb09fd59e0a0d5f8b89.yml
-openapi_spec_hash: 77a8bb27724be9c876ee7832cdb630ff
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/sully-ai%2Fsullyai-api-b87be91ed8602e77167f6c516153f00ee283613870ab04e28801e2cc01c8abeb.yml
+openapi_spec_hash: d18eb1e586fc90a39d93cb7dc6cf1dd5
 config_hash: 5e6260c6b472bb922f38f08b476f177c

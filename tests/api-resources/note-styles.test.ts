@@ -9,7 +9,7 @@ const client = new SullyAI({
 });
 
 describe('resource noteStyles', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.noteStyles.create({ sampleNote: 'sampleNote' });
     const rawResponse = await responsePromise.asResponse();
@@ -21,7 +21,7 @@ describe('resource noteStyles', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.noteStyles.create({ sampleNote: 'sampleNote', instructions: ['string'] });
   });
