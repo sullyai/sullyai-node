@@ -1,5 +1,60 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2026-01-24)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* **api:** api update ([0b6b541](https://github.com/sullyai/sullyai-node/commit/0b6b5418b23ab589a97903ecadc65cec2117cd26))
+* **mcp:** add code execution tool ([5d7db5c](https://github.com/sullyai/sullyai-node/commit/5d7db5c3762e3b44a70324c3c6ba16cd9405722f))
+
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([bc3143a](https://github.com/sullyai/sullyai-node/commit/bc3143a521d8ec530b4fc18cc83b4bc1e8e7d9f4))
+* **mcp:** correct code tool API endpoint ([2cbf2a6](https://github.com/sullyai/sullyai-node/commit/2cbf2a620493c1f9c2fb91695d4aba40c324aa42))
+* **mcp:** return correct lines on typescript errors ([8195aff](https://github.com/sullyai/sullyai-node/commit/8195aff864f1299a2f5c84a78ff4f1dc4d37c42e))
+
+
+### Performance Improvements
+
+* faster formatting ([340cff8](https://github.com/sullyai/sullyai-node/commit/340cff8fc1684afc20b12ff393c704e4c9c63777))
+
+
+### Chores
+
+* add package to package.json ([50f8ea9](https://github.com/sullyai/sullyai-node/commit/50f8ea910c489ac8d678d72a9f858b780688824b))
+* break long lines in snippets into multiline ([0ae9982](https://github.com/sullyai/sullyai-node/commit/0ae9982c0f8f24cf6f8d5de24b23a964741bb31d))
+* ci build action ([cfd15c9](https://github.com/sullyai/sullyai-node/commit/cfd15c922873175cca1e7b0748ccc96acb093afc))
+* **ci:** upgrade `actions/github-script` ([82efc96](https://github.com/sullyai/sullyai-node/commit/82efc96ab80507221083d1b480c2ee73178727f8))
+* **client:** fix logger property type ([0c95a9a](https://github.com/sullyai/sullyai-node/commit/0c95a9a1bd2dfaf4926a05113289686a6f964010))
+* **client:** qualify global Blob ([02af170](https://github.com/sullyai/sullyai-node/commit/02af17026ccc0636923cfe5e10d4a4f2dafa4cb9))
+* **deps:** update dependency @types/node to v20.17.58 ([6abeaf2](https://github.com/sullyai/sullyai-node/commit/6abeaf24a1f64565d9dc870734527de66e38a5f8))
+* do not install brew dependencies in ./scripts/bootstrap by default ([7f29ee7](https://github.com/sullyai/sullyai-node/commit/7f29ee7846a5e76bed0a0beee8f630d325adcc6c))
+* **internal:** codegen related update ([0216c33](https://github.com/sullyai/sullyai-node/commit/0216c33911c826b7fda67321ec9d4d9c781d4c1d))
+* **internal:** codegen related update ([29e0f4b](https://github.com/sullyai/sullyai-node/commit/29e0f4bfbf28110d942e27293e814b7bef8b7eca))
+* **internal:** codegen related update ([3be614f](https://github.com/sullyai/sullyai-node/commit/3be614f0d2e1a62a02597ed72b9dcee3bd7d7f06))
+* **internal:** codegen related update ([e8c588e](https://github.com/sullyai/sullyai-node/commit/e8c588e44880ad9d45514168bef4985d9ac08406))
+* **internal:** codegen related update ([db359a6](https://github.com/sullyai/sullyai-node/commit/db359a629bec7e0fe52d9e943a22eb89e1797845))
+* **internal:** fix incremental formatting in some cases ([b2f98bf](https://github.com/sullyai/sullyai-node/commit/b2f98bf456897da5feb8546e42127ef9c9c7fd6c))
+* **internal:** formatting change ([8afeb88](https://github.com/sullyai/sullyai-node/commit/8afeb88f02aebe28dce2032dc7ac2b5ee3717fee))
+* **internal:** ignore .eslintcache ([de59559](https://github.com/sullyai/sullyai-node/commit/de595591bb58d4ae2a857e25196e7f88ed7b1e80))
+* **internal:** move publish config ([1c24123](https://github.com/sullyai/sullyai-node/commit/1c241232b012342b79bdc308e03f1b96fe6a33cd))
+* **internal:** remove .eslintcache ([bd587ae](https://github.com/sullyai/sullyai-node/commit/bd587ae97296ee70d8a7b1964115d173915265c7))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([1b8579f](https://github.com/sullyai/sullyai-node/commit/1b8579fa5d3f2a7d16d894394d83d384344634a3))
+* **internal:** remove redundant imports config ([06633c9](https://github.com/sullyai/sullyai-node/commit/06633c9c4aedd3e387978f9a5ceafb4e4d486306))
+* **internal:** update `actions/checkout` version ([9bc8148](https://github.com/sullyai/sullyai-node/commit/9bc8148e948a8d72f66db7998aa6ec95123ec8b4))
+* **internal:** update comment in script ([8c0294c](https://github.com/sullyai/sullyai-node/commit/8c0294c90654400701e97459c12c506b753f36a2))
+* **internal:** update global Error reference ([9f8afb9](https://github.com/sullyai/sullyai-node/commit/9f8afb91b047dde33502f25e24013ed9531149d9))
+* **internal:** upgrade babel, qs, js-yaml ([7ab2bd9](https://github.com/sullyai/sullyai-node/commit/7ab2bd9bf8aa91b5e006ff20ebc37cbed7502d7a))
+* **internal:** upgrade eslint ([02b680b](https://github.com/sullyai/sullyai-node/commit/02b680b00d69ae4c6982c4abcf9bd4d1971de56c))
+* **internal:** use npm pack for build uploads ([7d3a658](https://github.com/sullyai/sullyai-node/commit/7d3a65819e8c263a787c59ad6e6a7de3475e2be0))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([7894ac2](https://github.com/sullyai/sullyai-node/commit/7894ac25c4fa115e4ec2cae65ce06560c6cad2c9))
+* **ts:** reorder package.json imports ([add7c82](https://github.com/sullyai/sullyai-node/commit/add7c8223001fac131d003f58080a458a4143f62))
+* update @stainless-api/prism-cli to v5.15.0 ([d937129](https://github.com/sullyai/sullyai-node/commit/d93712946538b880d2e117e9ee98d35da5f74f30))
+* update CI script ([12c0302](https://github.com/sullyai/sullyai-node/commit/12c0302f9528196e65850edcf4c1bcb110469907))
+
 ## 0.1.0-alpha.11 (2025-07-10)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/sullyai/sullyai-node/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
